@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/css/admin.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- 경고창 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+    <title>MUUJI</title>
+  </head>
+  <body>
+    <%- include('nav') %>
+
+    <div class="container">
+      <!-- 등록 폼 -->
+      <form id="uploadFile" enctype="multipart/form-data">
+        <div
+          class="image-upload"
+          onclick="document.getElementById('imageInput').click()"
+        >
+          <span>이미지 선택</span>
+          <input
+            type="file"
+            id="imageInput"
+            name="image"
+            accept="image/*"
+            onchange="previewImage(event)"
+          />
+          <img
+            id="preview"
+            src=""
+            alt="이미지 미리보기"
+            style="display: none"
+          />
+        </div>
+
+        <div class="inputs">
+          <div class="flex">
+            <input id="name" placeholder="상품 이름을 입력해 주세요." />
+            <div id="btn" onclick="check()">중복 체크</div>
+          </div>
+          <div id="nameAlert"></div>
+
+          <input type="number" id="price" placeholder="가격을 입력해 주세요." />
+
+          <input id="detail" placeholder="상세를 입력해 주세요." />
+
+          <div class="radioAll">
+            <input type="radio" name="category" value="note" checked />
+            <div class="font">Note</div>
+            <input type="radio" name="category" value="pen" />
+            <div class="font">Pen</div>
+            <input type="radio" name="category" value="file" />
+            <div class="font">File</div>
+            <input type="radio" name="category" value="office" />
+            <div class="font">Office Supplies</div>
+          </div>
+
+          <button type="button" id="btnSelect" onclick="addData()">등록</button>
+        </div>
+      </form>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>상품명</th>
+            <th>카테고리</th>
+            <th>상품 이미지</th>
+            <th>가격</th>
+            <th>상세</th>
+            <th>수정</th>
+            <th>삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i = 0; i < products.length; i++) { %>
+          <tr id="tr_<%= products[i].id %>">
+            <td><%= products[i].id %></td>
+            <td><%= products[i].name %></td>
+            <td><%= products[i].category %></td>
+            <td><img src="<%= products[i].image %>" /></td>
+            <td><%= products[i].price %></td>
+            <td><%= products[i].detail %></td>
+            <td>
+              <button
+                type="button"
+                class="update"
+                onclick="updatePage('<%= products[i].id %>')"
+              >
+                수정
+              </button>
+            </td>
+            <td>
+              <button
+                type="button"
+                class="delete"
+                onclick="deleteProduct('<%= products[i].id %>')"
+              >
+                삭제
+              </button>
+            </td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+    <script src="/static/js/admin.js"></script>
+  </body>
+</html>
