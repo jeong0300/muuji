@@ -1,52 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="/static/css/modify.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
   <body>
-    <h1>수정 페이지</h1>
+    <%- include('nav') %>
 
-    <form name="updateData">
-      <div>
-        이름
-        <input name="name" value="<%= visit[0].name %>" />
+    <div
+      class="image-upload"
+      onclick="document.getElementById('imageInput').click()"
+    >
+      <span>이미지 선택</span>
+      <input
+        type="file"
+        id="imageInput"
+        name="image"
+        accept="image/*"
+        onchange="previewImage(event)"
+      />
+      <% if (product && product.length > 0 && product[0].image) { %>
+      <img
+        id="preview"
+        src="<%= product[0].image %>"
+        alt="이미지 미리보기"
+        style="display: block"
+      />
+      <% } else { %>
+      <img id="preview" src="" alt="이미지 미리보기" style="display: none" />
+      <% } %>
+    </div>
+
+    <div class="inputs">
+      <div class="flex">
+        <input
+          id="name"
+          value="<%= product[0].name %>"
+          placeholder="상품 이름을 입력해 주세요."
+        />
+        <div id="btn" onclick="check()">중복 체크</div>
+      </div>
+      <div id="nameAlert"></div>
+
+      <input
+        type="number"
+        id="price"
+        value="<%= product[0].price %>"
+        placeholder="가격을 입력해 주세요."
+      />
+
+      <input
+        id="detail"
+        value="<%= product[0].detail %>"
+        placeholder="상세를 입력해 주세요."
+      />
+
+      <div class="radioAll">
+        <input type="radio" name="category" value="note" <%= product[0].category
+        === 'note' ? 'checked' : '' %> />
+        <div class="font">Note</div>
+
+        <input type="radio" name="category" value="pen" <%= product[0].category
+        === 'pen' ? 'checked' : '' %> />
+        <div class="font">Pen</div>
+
+        <input type="radio" name="category" value="file" <%= product[0].category
+        === 'file' ? 'checked' : '' %> />
+        <div class="font">File</div>
+
+        <input type="radio" name="category" value="office" <%=
+        product[0].category === 'office' ? 'checked' : '' %> />
+        <div class="font">Office Supplies</div>
       </div>
 
-      <div>
-        방명록
-        <input name="comment" value="<%= visit[0].comment %>" />
-      </div>
-
-      <button type="button" onclick="updateForm('<%= visit[0].id %>')">
-        수정
-      </button>
-    </form>
+      <button type="button" id="btnSelect" onclick="addData()">등록</button>
+    </div>
+    <script src="/static/js/modify.js"></script>
   </body>
-  <script>
-    const updateForm = (id) => {
-      const form = document.forms["updateData"];
-
-      const data = {
-        id: id,
-        name: form["name"].value,
-        comment: form["comment"].value,
-      };
-
-      axios({
-        method: "put",
-        url: "/visitor/update",
-        data: data,
-      })
-        .then((res) => {
-          alert("수정 성공!");
-          window.location.href = "/visitor/main";
-        })
-        .catch((e) => {
-          alert(e);
-        });
-    };
-  </script>
 </html>

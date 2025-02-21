@@ -51,6 +51,31 @@ async function uploadImage(file) {
   }
 }
 
+// 이름 중복 확인
+const check = async () => {
+  const name = document.getElementById("name").value.trim();
+  const nameAlert = document.getElementById("nameAlert");
+
+  if (!name) {
+    nameAlert.innerHTML = "<h5 class='red'>상품명을 입력하세요.</h5><br/>";
+    return;
+  }
+
+  try {
+    const res = await axios.post("/check", { name });
+
+    if (res.data.exists) {
+      nameAlert.innerHTML = "<h5 class='red'>중복되는 상품명입니다.</h5><br/>";
+    } else {
+      nameAlert.innerHTML =
+        "<h5 class='green'>사용 가능한 상품명입니다.</h5><br/>";
+    }
+  } catch (err) {
+    console.error("중복 체크 중 오류 발생:", err);
+    nameAlert.innerHTML = "<h5 class='red'>서버 오류 발생</h5><br/>";
+  }
+};
+
 // 상품 등록하기
 const addData = async () => {
   const name = document.getElementById("name").value;

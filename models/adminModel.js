@@ -49,21 +49,26 @@ const deleteData = async (id) => {
 };
 
 // 해당 데이터 하나만
-// const getOne = async (userId) => {
-//   const query = `SELECT * FROM users WHERE id = ${userId}`;
-//   const [rows] = await pool.query(query);
-//   // console.log("한 명", rows);
-//   return rows;
-// };
+const getOne = async (id) => {
+  const query = `SELECT * FROM products WHERE id = ${id}`;
+  const [rows] = await pool.query(query);
+  return rows;
+};
 
-// // 해당 아이디를 가진 데이터 수정
-// const updateRow = async (data) => {
-//   const query = `UPDATE users SET name = ?, comment = ? WHERE id = ?`;
-//   try {
-//     await pool.query(query, [data.name, data.comment, Number(data.id)]);
-//   } catch (e) {
-//     console.log(e);
-//   }
-// };
+// 해당 아이디를 가진 데이터 수정
+const updateRow = async (data) => {
+  const query = `UPDATE products SET name = ?, price = ?, image = ?, derail = ? WHERE id = ?`;
+  try {
+    await pool.query(query, [
+      data.name,
+      data.price,
+      data.image,
+      data.detail,
+      Number(data.id),
+    ]);
+  } catch (e) {
+    console.log(e);
+  }
+};
 
-module.exports = { getAllProduct, postProduct, deleteData };
+module.exports = { getAllProduct, postProduct, deleteData, getOne };

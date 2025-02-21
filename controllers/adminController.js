@@ -47,4 +47,18 @@ const deleteRow = async (req, res) => {
   res.send("200");
 };
 
-module.exports = { upload, uploadImage, getAllProducts, createRow, deleteRow };
+// 수정하기
+const updatePage = async (req, res) => {
+  const product = await products.getOne(req.params.id);
+  console.log(product);
+  res.render("modify", { product });
+};
+
+module.exports = {
+  upload,
+  uploadImage,
+  getAllProducts,
+  createRow,
+  deleteRow,
+  updatePage,
+};
