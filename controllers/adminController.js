@@ -54,6 +54,11 @@ const updatePage = async (req, res) => {
   res.render("modify", { product });
 };
 
+const dataUpdate = async (req, res) => {
+  await products.updateRow(req.body);
+  res.send("200");
+};
+
 module.exports = {
   upload,
   uploadImage,
@@ -61,4 +66,5 @@ module.exports = {
   createRow,
   deleteRow,
   updatePage,
+  dataUpdate,
 };

@@ -47,13 +47,7 @@ function previewImage(event) {
   }
 }
 
-const modifyProduct = async () => {
-  const name = document.getElementById("name").value;
-  const price = document.getElementById("price").value;
-  const detail = document.getElementById("detail").value;
-  const category = document.querySelector(
-    "input[name='category']:checked"
-  ).value;
+const modifyProduct = async (id) => {
   let imageUrl = document.getElementById("preview").src;
 
   // 새 이미지 업로드 후 URL 가져오기
@@ -64,13 +58,29 @@ const modifyProduct = async () => {
     }
   }
 
-  const productData = { name, price, detail, category, image: imageUrl };
+  const form = document.forms["updateData"];
 
-  try {
-    await axios.put(`/product/update/${productId}`, productData);
-    alert("상품이 수정되었습니다.");
-    window.location.href = "/admin";
-  } catch (err) {
-    console.error("상품 수정 실패:", err);
-  }
+  console.log(id);
+
+  const data = {
+    id: id,
+    name: form["name"].value,
+    price: form["price"].value,
+    category: form["category"].value,
+    detail: form["detail"].value,
+    image: imageUrl,
+  };
+
+  axios({
+    method: "put",
+    url: "/admin/update/:id",
+    data: data,
+  })
+    .then((res) => {
+      alert("수정 성공!");
+      window.location.href = "/";
+    })
+    .catch((e) => {
+      alert(e);
+    });
 };

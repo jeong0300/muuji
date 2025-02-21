@@ -57,13 +57,14 @@ const getOne = async (id) => {
 
 // 해당 아이디를 가진 데이터 수정
 const updateRow = async (data) => {
-  const query = `UPDATE products SET name = ?, price = ?, image = ?, derail = ? WHERE id = ?`;
+  const query = `UPDATE products SET name = ?, price = ?, image = ?, detail = ?, category = ? WHERE id = ?`;
   try {
     await pool.query(query, [
       data.name,
       data.price,
       data.image,
       data.detail,
+      data.category,
       Number(data.id),
     ]);
   } catch (e) {
@@ -71,4 +72,4 @@ const updateRow = async (data) => {
   }
 };
 
-module.exports = { getAllProduct, postProduct, deleteData, getOne };
+module.exports = { getAllProduct, postProduct, deleteData, getOne, updateRow };

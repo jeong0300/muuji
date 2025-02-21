@@ -35,9 +35,12 @@ router.post("/check", async (req, res) => {
 });
 
 // 데이터 등록
-router.post("/addData/:id", adminController.createRow);
+router.post("/addData", adminController.createRow);
 
 // 데이터 삭제
 router.delete("/delete/:id", adminController.deleteRow);
+
+// 데이터 수정
+router.put("/update/:id", adminController.dataUpdate);
 
 module.exports = router;

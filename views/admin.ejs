@@ -51,14 +51,14 @@
           <input id="detail" placeholder="상세를 입력해 주세요." />
 
           <div class="radioAll">
-            <input type="radio" name="category" value="note" checked />
-            <div class="font">Note</div>
-            <input type="radio" name="category" value="pen" />
-            <div class="font">Pen</div>
-            <input type="radio" name="category" value="file" />
-            <div class="font">File</div>
-            <input type="radio" name="category" value="office" />
-            <div class="font">Office Supplies</div>
+            <input type="radio" name="category" value="Speaker" checked />
+            <div class="font">Speaker</div>
+            <input type="radio" name="category" value="Headphones" />
+            <div class="font">Headphones</div>
+            <input type="radio" name="category" value="Soundbar" />
+            <div class="font">Soundbar</div>
+            <input type="radio" name="category" value="TV" />
+            <div class="font">TV</div>
           </div>
 
           <button type="button" id="btnSelect" onclick="addData()">등록</button>
@@ -68,10 +68,9 @@
       <table>
         <thead>
           <tr>
-            <th>ID</th>
+            <th>상품 이미지</th>
             <th>상품명</th>
             <th>카테고리</th>
-            <th>상품 이미지</th>
             <th>가격</th>
             <th>상세</th>
             <th>수정</th>
@@ -81,10 +80,9 @@
         <tbody>
           <% for(let i = 0; i < products.length; i++) { %>
           <tr id="tr_<%= products[i].id %>">
-            <td><%= products[i].id %></td>
+            <td><img src="<%= products[i].image %>" /></td>
             <td><%= products[i].name %></td>
             <td><%= products[i].category %></td>
-            <td><img src="<%= products[i].image %>" /></td>
             <td><%= products[i].price %></td>
             <td><%= products[i].detail %></td>
             <td>

@@ -24,7 +24,16 @@ const product = require("./models/adminModel");
 
 app.get("/", async (req, res) => {
   const products = await product.getAllProduct();
-  res.render("admin", { products });
+
+  const formattedProducts = products.map((product) => {
+    if (typeof product.price === "string") {
+      product.price = Number(product.price);
+    }
+    product.price = product.price.toLocaleString("ko-KR");
+    return product;
+  });
+
+  res.render("admin", { products: formattedProducts });
 });
 
 app.post("/upload", upload.single("files"), (req, res) => {
