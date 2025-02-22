@@ -27,8 +27,10 @@
   <body>
     <div class="header">
       <div class="logoImg">
-        <div class="mainLogo" onclick="move('muuji')">
-          <img src="/static/images/muujiLogo.png" />
+        <div class="mainLogo">
+          <a href="/admin/muuji">
+            <img src="/static/images/muujiLogo.png" />
+          </a>
         </div>
       </div>
       <!-- 반응형 nav -->
@@ -60,16 +62,12 @@
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item" onclick="main()">Home</li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/muuji"
-                  >Home</a
-                >
+                <a class="nav-link" onclick="alert()">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="showAlert()">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="move('favorite')">Favorite</a>
+                <a class="nav-link" onclick="alert()">Favorite</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" onclick="move('shoppingCart')"

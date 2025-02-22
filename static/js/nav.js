@@ -21,14 +21,6 @@ function showAlert() {
   });
 }
 
-// 페이지 이동
-function move(url) {
-  document.body.classList.add("fade-out");
-  setTimeout(() => {
-    window.location.href = `../html/${url}`;
-  }, 500);
-}
-
 function moveDetail(id) {
   document.body.classList.add("fade-out");
   setTimeout(() => {

@@ -72,4 +72,23 @@ const updateRow = async (data) => {
   }
 };
 
-module.exports = { getAllProduct, postProduct, deleteData, getOne, updateRow };
+// 중복 체크
+const check = async (name) => {
+  const query = `SELECT * FROM products WHERE name = ?;`;
+  try {
+    const [rows] = await pool.query(query, [name]);
+    return rows.length > 0;
+  } catch (err) {
+    console.error("쿼리 오류:", err);
+    throw err;
+  }
+};
+
+module.exports = {
+  getAllProduct,
+  postProduct,
+  deleteData,
+  getOne,
+  updateRow,
+  check,
+};

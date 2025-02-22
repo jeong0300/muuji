@@ -16,12 +16,34 @@ window.onload = function () {
   }
 };
 
+async function uploadImage(file) {
+  const formData = new FormData();
+  formData.append("image", file);
+
+  try {
+    const res = await axios.post("/admin/uploadImage", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+
+    if (res.data.success) {
+      document.getElementById("preview").dataset.imageUrl = res.data.imageUrl;
+    } else {
+      alert("이미지 업로드 실패");
+    }
+  } catch (error) {
+    console.error("이미지 업로드 에러:", error);
+    alert("이미지 업로드 중 오류 발생");
+  }
+}
+
 // 파일 선택 후 미리보기 & 업로드 기능
 function previewImage(event) {
   const file = event.target.files[0];
   const preview = document.getElementById("preview");
   const label = document.querySelector(".image-upload span");
   const imageUpload = document.querySelector(".image-upload");
+
+  uploadImage(file);
 
   if (file) {
     const reader = new FileReader();
@@ -49,7 +71,6 @@ function previewImage(event) {
 
 const modifyProduct = async (id) => {
   let imageUrl = document.getElementById("preview").src;
-
   // 새 이미지 업로드 후 URL 가져오기
   if (document.getElementById("imageInput").files.length > 0) {
     const uploadedUrl = await uploadImage();
@@ -57,11 +78,8 @@ const modifyProduct = async (id) => {
       imageUrl = uploadedUrl;
     }
   }
-
   const form = document.forms["updateData"];
-
   console.log(id);
-
   const data = {
     id: id,
     name: form["name"].value,
@@ -70,7 +88,6 @@ const modifyProduct = async (id) => {
     detail: form["detail"].value,
     image: imageUrl,
   };
-
   axios({
     method: "put",
     url: "/admin/update/:id",
@@ -83,4 +100,32 @@ const modifyProduct = async (id) => {
     .catch((e) => {
       alert(e);
     });
+};
+
+// 이름 중복 확인
+const check = async () => {
+  const name = document.getElementById("name").value.trim();
+  const nameAlert = document.getElementById("nameAlert");
+
+  if (!name) {
+    nameAlert.innerHTML = "<p class='red'>상품명을 입력하세요.</p>";
+    return;
+  }
+
+  try {
+    const res = await axios.post("/admin/check", { name });
+
+    if (res.data.exists) {
+      nameAlert.innerHTML = "<p class='red'>중복되는 상품명입니다.</p>";
+    } else {
+      nameAlert.innerHTML = "<p class='green'>사용 가능한 상품명입니다.</p>";
+    }
+  } catch (err) {
+    console.error("중복 체크 중 오류 발생:", err);
+    if (err.response && err.response.data) {
+      nameAlert.innerHTML = `<p class='red'>${err.response.data.message}</p><br/>`;
+    } else {
+      nameAlert.innerHTML = "<p class='red'>서버 오류 발생</p><br/>";
+    }
+  }
 };

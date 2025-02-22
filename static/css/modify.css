@@ -216,3 +216,17 @@ a {
 a:hover {
   background-color: #e0c34e;
 }
+
+.red {
+  margin-top: -10px;
+  margin-bottom: -5px;
+  font-size: 11px;
+  color: red;
+}
+
+.green {
+  margin-top: -10px;
+  margin-bottom: -5px;
+  font-size: 11px;
+  color: green;
+}

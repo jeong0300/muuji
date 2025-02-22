@@ -57,22 +57,25 @@ const check = async () => {
   const nameAlert = document.getElementById("nameAlert");
 
   if (!name) {
-    nameAlert.innerHTML = "<h5 class='red'>상품명을 입력하세요.</h5><br/>";
+    nameAlert.innerHTML = "<p class='red'>상품명을 입력하세요.</p>";
     return;
   }
 
   try {
-    const res = await axios.post("/check", { name });
+    const res = await axios.post("/admin/check", { name });
 
     if (res.data.exists) {
-      nameAlert.innerHTML = "<h5 class='red'>중복되는 상품명입니다.</h5><br/>";
+      nameAlert.innerHTML = "<p class='red'>중복되는 상품명입니다.</p>";
     } else {
-      nameAlert.innerHTML =
-        "<h5 class='green'>사용 가능한 상품명입니다.</h5><br/>";
+      nameAlert.innerHTML = "<p class='green'>사용 가능한 상품명입니다.</p>";
     }
   } catch (err) {
     console.error("중복 체크 중 오류 발생:", err);
-    nameAlert.innerHTML = "<h5 class='red'>서버 오류 발생</h5><br/>";
+    if (err.response && err.response.data) {
+      nameAlert.innerHTML = `<p class='red'>${err.response.data.message}</p><br/>`;
+    } else {
+      nameAlert.innerHTML = "<p class='red'>서버 오류 발생</p><br/>";
+    }
   }
 };
 

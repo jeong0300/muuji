@@ -1,4 +1,3 @@
-const path = require("path");
 const multer = require("multer");
 const products = require("../models/adminModel");
 
@@ -11,16 +10,29 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+// 파일 필터링 - .webp 포함
+const fileFilter = (req, file, cb) => {
+  const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/webp"];
+  if (allowedTypes.includes(file.mimetype)) {
+    cb(null, true); // 허용
+  } else {
+    cb(new Error("허용되지 않은 파일 형식입니다."), false); // 거부
+  }
+};
+
+const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 // 이미지 업로드 컨트롤러 함수
 const uploadImage = (req, res) => {
+  console.log("실패", res);
   if (!req.file) {
-    return res
-      .status(400)
-      .json({ success: false, message: "파일 업로드 실패" });
+    // return res
+    //   .status(400)
+    //   .json({ success: false, message: "파일 업로드 실패" });
+    console.log("실패", req.file);
   }
   const imageUrl = `/uploads/${req.file.filename}`;
+  console.log(imageUrl);
   res.json({ success: true, imageUrl });
 };
 
@@ -54,9 +66,28 @@ const updatePage = async (req, res) => {
   res.render("modify", { product });
 };
 
+// 수정 후 등록하기
 const dataUpdate = async (req, res) => {
   await products.updateRow(req.body);
   res.send("200");
+};
+
+// 중복 체크하기
+const check = async (req, res) => {
+  const { name } = req.body;
+
+  try {
+    const isExist = await products.check(name);
+
+    if (isExist) {
+      return res.status(200).json({ exists: true });
+    } else {
+      return res.status(200).json({ exists: false });
+    }
+  } catch (error) {
+    console.error("중복 체크 에러:", error);
+    res.status(500).json({ message: "서버 오류 발생" });
+  }
 };
 
 module.exports = {
@@ -67,4 +98,5 @@ module.exports = {
   deleteRow,
   updatePage,
   dataUpdate,
+  check,
 };

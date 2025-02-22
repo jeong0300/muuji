@@ -187,3 +187,17 @@ button[type="button"].delete:hover {
 td button {
   margin: 5px;
 }
+
+.red {
+  margin-top: -10px;
+  margin-bottom: -5px;
+  font-size: 11px;
+  color: red;
+}
+
+.green {
+  margin-top: -10px;
+  margin-bottom: -5px;
+  font-size: 11px;
+  color: green;
+}

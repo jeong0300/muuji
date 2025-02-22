@@ -36,6 +36,11 @@ app.get("/", async (req, res) => {
   res.render("admin", { products: formattedProducts });
 });
 
+app.get("/muuji", (req, res) => {
+  console.log(req);
+  res.render("muuji");
+});
+
 app.post("/upload", upload.single("files"), (req, res) => {
   res.json({
     imageUrl: `/uploads/${req.file.filename}`,
