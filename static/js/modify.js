@@ -116,8 +116,7 @@ async function modifyProduct(id) {
   let imageUrl = preview.dataset.imageUrl;
 
   if (!imageUrl) {
-    alert("이미지 URL이 없습니다!");
-    return;
+    imageUrl = preview.src;
   }
 
   const form = document.forms["updateData"];
