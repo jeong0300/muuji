@@ -25,41 +25,47 @@ async function uploadImage(file) {
       headers: { "Content-Type": "multipart/form-data" },
     });
 
-    if (res.data.success) {
-      document.getElementById("preview").dataset.imageUrl = res.data.imageUrl;
+    if (res.data.imageUrl) {
+      return res.data.imageUrl;
     } else {
       alert("이미지 업로드 실패");
+      return "";
     }
   } catch (error) {
     console.error("이미지 업로드 에러:", error);
     alert("이미지 업로드 중 오류 발생");
+    return "";
   }
 }
 
 // 파일 선택 후 미리보기 & 업로드 기능
-function previewImage(event) {
+async function previewImage(event) {
   const file = event.target.files[0];
   const preview = document.getElementById("preview");
   const label = document.querySelector(".image-upload span");
   const imageUpload = document.querySelector(".image-upload");
 
-  uploadImage(file);
-
   if (file) {
-    const reader = new FileReader();
-    reader.onload = function (e) {
-      preview.src = e.target.result;
+    try {
+      const uploadedImageUrl = await uploadImage(file);
 
-      const img = new Image();
-      img.onload = function () {
+      if (uploadedImageUrl) {
+        preview.src = uploadedImageUrl;
         preview.style.display = "block";
         label.style.display = "none";
         imageUpload.style.border = "2px solid transparent";
-      };
-      img.onerror = function () {
-        alert("이미지 로드에 실패했습니다.");
-      };
-      img.src = e.target.result;
+        preview.dataset.imageUrl = uploadedImageUrl;
+      } else {
+        alert("이미지 업로드 실패");
+      }
+    } catch (error) {
+      console.error("이미지 업로드 중 오류 발생", error);
+      alert("이미지 업로드 실패");
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      preview.src = e.target.result;
     };
     reader.readAsDataURL(file);
   } else {
@@ -69,17 +75,52 @@ function previewImage(event) {
   }
 }
 
-const modifyProduct = async (id) => {
-  let imageUrl = document.getElementById("preview").src;
-  // 새 이미지 업로드 후 URL 가져오기
-  if (document.getElementById("imageInput").files.length > 0) {
-    const uploadedUrl = await uploadImage();
-    if (uploadedUrl) {
-      imageUrl = uploadedUrl;
+async function previewImage(event) {
+  const file = event.target.files[0];
+  const preview = document.getElementById("preview");
+  const label = document.querySelector(".image-upload span");
+  const imageUpload = document.querySelector(".image-upload");
+
+  if (file) {
+    try {
+      const uploadedImageUrl = await uploadImage(file);
+
+      if (uploadedImageUrl) {
+        preview.src = uploadedImageUrl;
+        preview.style.display = "block";
+        label.style.display = "none";
+        imageUpload.style.border = "2px solid transparent";
+        preview.dataset.imageUrl = uploadedImageUrl;
+      } else {
+        alert("이미지 업로드 실패");
+      }
+    } catch (error) {
+      console.error("이미지 업로드 중 오류 발생", error);
+      alert("이미지 업로드 실패");
     }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      preview.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  } else {
+    preview.style.display = "none";
+    label.style.display = "block";
+    imageUpload.style.border = "2px dashed #ccc";
   }
+}
+
+async function modifyProduct(id) {
+  const preview = document.getElementById("preview");
+  let imageUrl = preview.dataset.imageUrl;
+
+  if (!imageUrl) {
+    alert("이미지 URL이 없습니다!");
+    return;
+  }
+
   const form = document.forms["updateData"];
-  console.log(id);
   const data = {
     id: id,
     name: form["name"].value,
@@ -88,9 +129,10 @@ const modifyProduct = async (id) => {
     detail: form["detail"].value,
     image: imageUrl,
   };
+
   axios({
     method: "put",
-    url: "/admin/update/:id",
+    url: `/admin/update/${id}`,
     data: data,
   })
     .then((res) => {
@@ -98,9 +140,9 @@ const modifyProduct = async (id) => {
       window.location.href = "/";
     })
     .catch((e) => {
-      alert(e);
+      alert("수정 실패:", e);
     });
-};
+}
 
 // 이름 중복 확인
 const check = async () => {

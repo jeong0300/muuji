@@ -198,7 +198,13 @@ td button {
 }
 
 /* 돌아가기 버튼 스타일 */
-a {
+.backBtn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.back {
   display: inline-block;
   background-color: #ffdb58;
   padding: 12px 30px;
@@ -213,7 +219,7 @@ a {
   transition: background-color 0.3s;
 }
 
-a:hover {
+.back:hover {
   background-color: #e0c34e;
 }
 

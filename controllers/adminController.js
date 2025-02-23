@@ -1,38 +1,28 @@
+const path = require("path");
 const multer = require("multer");
 const products = require("../models/adminModel");
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // 파일 저장 경로
+  destination: (req, file, cb) => {
+    cb(null, "uploads/");
   },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname); // 고유한 파일명 설정
+  filename: (req, file, cb) => {
+    const ext = path.extname(file.originalname);
+    const filename = path.basename(file.originalname, ext);
+    cb(null, filename + ext);
   },
 });
 
-// 파일 필터링 - .webp 포함
-const fileFilter = (req, file, cb) => {
-  const allowedTypes = ["image/jpeg", "image/png", "image/gif", "image/webp"];
-  if (allowedTypes.includes(file.mimetype)) {
-    cb(null, true); // 허용
-  } else {
-    cb(new Error("허용되지 않은 파일 형식입니다."), false); // 거부
-  }
-};
-
-const upload = multer({ storage: storage, fileFilter: fileFilter });
+const upload = multer({ storage: storage });
 
 // 이미지 업로드 컨트롤러 함수
 const uploadImage = (req, res) => {
-  console.log("실패", res);
+  console.log("이미지 업로드 시작");
   if (!req.file) {
-    // return res
-    //   .status(400)
-    //   .json({ success: false, message: "파일 업로드 실패" });
-    console.log("실패", req.file);
+    console.log("이미지 파일이 없습니다.");
+    return res.status(400).json({ message: "이미지 업로드 실패" });
   }
   const imageUrl = `/uploads/${req.file.filename}`;
-  console.log(imageUrl);
   res.json({ success: true, imageUrl });
 };
 

@@ -2,6 +2,12 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="/static/css/main.css" />
+    <!-- 경고창 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -49,8 +55,10 @@
             />
             <div class="card-body">
               <h5 class="card-title">Atelier 비스포크</h5>
+              <hr />
               <p class="card-text">
                 강렬한 인상을 남기고 시선을 사로잡아 대화에 활기를 불어넣으세요.
+                <br />
                 뱅앤올룹슨의 완전 비스포크 제품으로 나만의 것을 만들어보세요.
               </p>
             </div>
@@ -65,11 +73,12 @@
             />
             <div class="card-body">
               <h5 class="card-title">Atelier Editions</h5>
+              <hr />
               <p class="card-text">
                 참신한 마감과 텍스처의 실험적인 색상. Atelier 팀이 탐구한 재료와
-                장인 정신의 한계, 바로 그것을 느낄 수 있습니다. 마음에 드는
-                제품이 있으신가요? 이 리미티드 에디션이 사라지기 전에
-                구매하세요.
+                장인 정신의 한계, 바로 그것을 느낄 수 있습니다. <br />마음에
+                드는 제품이 있으신가요? <br />
+                이 리미티드 에디션이 사라지기 전에 구매하세요.
               </p>
             </div>
           </div>
@@ -83,8 +92,10 @@
             />
             <div class="card-body">
               <h5 class="card-title">Atelier 카탈로그</h5>
+              <hr />
               <p class="card-text">
                 컬러, 소재, 마감의 50만 개가 넘는 조합 중에서 선택해 보세요.
+                <br />
                 디지털 Composer를 사용해 모든 각도에서 살펴보고 순식간에 컬러를
                 바꿀 수 있습니다.
               </p>
@@ -102,7 +113,7 @@
     <div class="story">
       <p>Bang & Olufsen</p>
       <h1>Exceptional craftsmanship since 1925</h1>
-      <div class="storyBtn">OUR STORY</div>
+      <div class="storyBtn" onclick="showAlert()">OUR STORY</div>
       <div class="storyVideo">
         <video
           src="/static/images/storyVideo.mp4"
@@ -112,6 +123,28 @@
           muted
           loop
         ></video>
+      </div>
+    </div>
+
+    <div class="product">
+      <h1>Sound. Video. Your choice.</h1>
+
+      <div class="productImg">
+        <button id="scrollLeft" class="scroll-btn"><</button>
+
+        <% for(let i = 0; i < product.slice(0, 8).length; i++) { %>
+        <div class="box" id="<%= product[i].id %>">
+          <div class="imgBox">
+            <img src="<%= product[i].image %>" />
+          </div>
+          <div class="textBox">
+            <h2><%= product[i].name %></h2>
+            <p>₩<%= product[i].price %></p>
+          </div>
+        </div>
+        <% } %>
+
+        <button id="scrollRight" class="scroll-btn">></button>
       </div>
     </div>
   </body>

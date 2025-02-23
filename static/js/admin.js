@@ -1,10 +1,21 @@
 // 파일 선택 후 미리보기 & 업로드 기능
-function previewImage(event) {
+async function previewImage(event) {
   const file = event.target.files[0];
   const preview = document.getElementById("preview");
   const label = document.querySelector(".image-upload span");
   const imageUpload = document.querySelector(".image-upload");
 
+  // 이미지 업로드 후 URL 받아오기
+  let uploadedImageUrl = "";
+  try {
+    uploadedImageUrl = await uploadImage(file);
+  } catch (error) {
+    console.error("이미지 업로드 중 오류 발생", error);
+    alert("이미지 업로드 실패");
+    return;
+  }
+
+  // 이미지 미리보기
   if (file) {
     const reader = new FileReader();
     reader.onload = function (e) {
@@ -15,8 +26,6 @@ function previewImage(event) {
         preview.style.display = "block";
         label.style.display = "none";
         imageUpload.style.border = "2px solid transparent";
-
-        uploadImage(file);
       };
       img.onerror = function () {
         alert("이미지 로드에 실패했습니다.");
@@ -29,6 +38,10 @@ function previewImage(event) {
     label.style.display = "block";
     imageUpload.style.border = "2px dashed #ccc";
   }
+
+  if (uploadedImageUrl) {
+    preview.src = uploadedImageUrl;
+  }
 }
 
 async function uploadImage(file) {
@@ -40,14 +53,19 @@ async function uploadImage(file) {
       headers: { "Content-Type": "multipart/form-data" },
     });
 
-    if (res.data.success) {
-      document.getElementById("preview").dataset.imageUrl = res.data.imageUrl;
+    if (res.data.imageUrl) {
+      const preview = document.getElementById("preview");
+      preview.dataset.imageUrl = res.data.imageUrl;
+
+      return res.data.imageUrl;
     } else {
       alert("이미지 업로드 실패");
+      return "";
     }
   } catch (error) {
     console.error("이미지 업로드 에러:", error);
     alert("이미지 업로드 중 오류 발생");
+    return "";
   }
 }
 

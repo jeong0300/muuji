@@ -1,3 +1,13 @@
+/* font */
+p,
+h1,
+h5 {
+  font-family: "Diphylleia", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* carosel */
 .carousel-item {
   max-height: 90vh;
 }
@@ -7,18 +17,12 @@
   text-align: center;
 }
 
-.container > h1 {
-  font-family: "Diphylleia", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 .card {
   border: none !important;
   text-align: center;
 }
 
-/* introduce 영역의 수정 */
+/* introduce */
 .introduce {
   position: relative;
   width: 100%;
@@ -47,29 +51,23 @@
   z-index: 2;
 }
 
+/* story */
 .story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   margin: 100px auto;
   text-align: center;
 }
 
-.story p,
-h1 {
-  font-family: "Diphylleia", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
 .storyVideo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   margin-top: 50px;
   width: 100%;
 }
 
 .videoSize {
-  max-width: 70vw;
+  max-width: 80vw;
 }
 
 .storyBtn {
@@ -79,8 +77,74 @@ h1 {
   height: 30px;
   max-height: 30px;
   padding: 20px 30px;
+  margin-top: 35px;
   border: 1px solid black;
   border-radius: 20px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.storyBtn:hover {
+  background-color: black;
+  color: white;
+}
+
+/* product */
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 100px;
+}
+
+.product > h1 {
+  margin-bottom: 20px;
+}
+
+.productImg {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll; /* 스크롤을 활성화 */
+  width: 100%;
+  scroll-snap-type: x mandatory; /* 스냅 설정 */
+  scroll-padding-left: 20px; /* 처음 요소의 왼쪽 여백 */
+  position: relative; /* 버튼을 이 영역 내에서 배치하도록 설정 */
+}
+
+.productImg .box {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  scroll-snap-align: start; /* 각 항목을 스냅하도록 설정 */
+  width: 300px; /* 요소의 고정 크기 지정 */
+}
+
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 100;
+  transition: background-color 0.3s ease;
+}
+
+#scrollLeft {
+  left: 10px;
+}
+
+#scrollRight {
+  right: 10px;
+}
+
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.imgBox img {
+  width: 450px;
 }
