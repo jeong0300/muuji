@@ -1,7 +1,20 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const header = document.querySelector(".header");
+
+  // 스크롤 이벤트
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 20) {
+      header.classList.add("fixed");
+    } else {
+      header.classList.remove("fixed");
+    }
+  });
+});
+
 // 장바구니 상품 수
 if (typeof window.shoppingCart === "undefined") {
   window.shoppingCart =
-    JSON.parse(window.localStorage.getItem("shoppingCart")) || []; // 전역으로
+    JSON.parse(window.localStorage.getItem("shoppingCart")) || [];
 }
 
 const num = document.getElementById("num");
@@ -12,7 +25,6 @@ if (window.shoppingCart.length === 0) {
   num.innerText = window.shoppingCart.length;
 }
 
-// 네비게이션 경고창
 function showAlert() {
   Swal.fire({
     icon: "error",

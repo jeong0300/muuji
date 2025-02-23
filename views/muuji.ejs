@@ -1,11 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="/static/css/main.css" />
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Muuji</title>
   </head>
   <body>
     <%-include('nav')%>
+
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video
+            src="/static/images/Video-Atelier-Craftsmanship-2024-Narrative-Motion-EN-10s-logo-0017-1920x1080px.mp4"
+            class="d-block w-100"
+            alt="main video"
+            autoplay
+            muted
+            loop
+          ></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <h1>Discover the Atelier Universe</h1>
+    </div>
+    <div class="container-fluid px-md-5">
+      <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        <div class="col d-flex justify-content-center">
+          <div class="card h-100">
+            <img
+              src="/static/images/card1.webp"
+              class="card-img-top"
+              alt="card image"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Atelier 비스포크</h5>
+              <p class="card-text">
+                강렬한 인상을 남기고 시선을 사로잡아 대화에 활기를 불어넣으세요.
+                뱅앤올룹슨의 완전 비스포크 제품으로 나만의 것을 만들어보세요.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <div class="card h-100">
+            <img
+              src="/static/images/card2.webp"
+              class="card-img-top"
+              alt="card image"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Atelier Editions</h5>
+              <p class="card-text">
+                참신한 마감과 텍스처의 실험적인 색상. Atelier 팀이 탐구한 재료와
+                장인 정신의 한계, 바로 그것을 느낄 수 있습니다. 마음에 드는
+                제품이 있으신가요? 이 리미티드 에디션이 사라지기 전에
+                구매하세요.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <div class="card h-100">
+            <img
+              src="/static/images/card3.webp"
+              class="card-img-top"
+              alt="card image"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Atelier 카탈로그</h5>
+              <p class="card-text">
+                컬러, 소재, 마감의 50만 개가 넘는 조합 중에서 선택해 보세요.
+                디지털 Composer를 사용해 모든 각도에서 살펴보고 순식간에 컬러를
+                바꿀 수 있습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="introduce">
+      <img src="/static/images/carosel2.webp" />
+      <div class="blur"></div>
+    </div>
+
+    <div class="story">
+      <p>Bang & Olufsen</p>
+      <h1>Exceptional craftsmanship since 1925</h1>
+      <div class="storyBtn">OUR STORY</div>
+      <div class="storyVideo">
+        <video
+          src="/static/images/storyVideo.mp4"
+          class="videoSize"
+          alt="stroy video"
+          autoplay
+          muted
+          loop
+        ></video>
+      </div>
+    </div>
   </body>
 </html>

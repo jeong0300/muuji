@@ -26,14 +26,6 @@
   </head>
   <body>
     <div class="header">
-      <div class="logoImg">
-        <div class="mainLogo">
-          <a href="/admin/muuji">
-            <img src="/static/images/muujiLogo.png" />
-          </a>
-        </div>
-      </div>
-      <!-- 반응형 nav -->
       <nav class="navbar fixed-top" id="mediaNav">
         <button
           class="navbar-toggler"
@@ -46,7 +38,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="offcanvas offcanvas-end"
+          class="offcanvas offcanvas-start"
           tabindex="-1"
           id="offcanvasNavbar"
           aria-labelledby="offcanvasNavbarLabel"
@@ -64,10 +56,10 @@
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li class="nav-item" onclick="main()">Home</li>
               <li class="nav-item">
-                <a class="nav-link" onclick="alert()">Login</a>
+                <a class="nav-link" onclick="showAlert()">Login</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" onclick="alert()">Favorite</a>
+                <a class="nav-link" onclick="showAlert()">Favorite</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" onclick="move('shoppingCart')"
@@ -79,6 +71,14 @@
         </div>
       </nav>
 
+      <div class="logoImg">
+        <div class="mainLogo">
+          <a href="/muuji">
+            <img src="/static/images/muujiLogo.png" />
+          </a>
+        </div>
+      </div>
+
       <!-- 아이콘 nav -->
       <div class="icon">
         <img
@@ -87,10 +87,10 @@
           alt="login icon"
         />
         <img
-          onclick="move('favorite')"
+          onclick="showAlert()"
           class="favoriteIcon"
-          src="/static/images/favoriteIcon.png"
-          alt="favorite icon"
+          src="/static/images/pinIcon.png"
+          alt="pin icon"
         />
         <img
           onclick="move('shoppingCart')"

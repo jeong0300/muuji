@@ -5,8 +5,6 @@ const adminController = require("../controllers/adminController");
 // 데이터 가져오기
 router.get("/", adminController.getAllProducts);
 
-router.get("/muuji", adminController.getAllProducts);
-
 // 데이터 수정
 router.get("/write/:id", adminController.updatePage);
 
