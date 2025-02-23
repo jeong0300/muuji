@@ -17,7 +17,6 @@ const upload = multer({ storage: storage });
 
 // 이미지 업로드 컨트롤러 함수
 const uploadImage = (req, res) => {
-  console.log("이미지 업로드 시작");
   if (!req.file) {
     console.log("이미지 파일이 없습니다.");
     return res.status(400).json({ message: "이미지 업로드 실패" });
@@ -36,7 +35,6 @@ const createRow = async (req, res) => {
 const getAllProducts = async (req, res) => {
   try {
     const product = await products.getAllProduct();
-    // console.log(product);
     res.render("admin", { product });
   } catch (error) {
     console.error("DB 조회 오류:", error);
@@ -52,7 +50,6 @@ const deleteRow = async (req, res) => {
 // 수정하기
 const updatePage = async (req, res) => {
   const product = await products.getOne(req.params.id);
-  console.log(product);
   res.render("modify", { product });
 };
 

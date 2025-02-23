@@ -113,7 +113,6 @@ const addData = async () => {
     data: { name, price, detail, image, category },
   })
     .then((res) => {
-      console.log(res);
       alert("등록성공");
       window.location.reload();
     })
