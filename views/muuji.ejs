@@ -130,7 +130,9 @@
       <h1>Sound. Video. Your choice.</h1>
 
       <div class="productImg">
-        <button id="scrollLeft" class="scroll-btn"><</button>
+        <button id="scrollLeft" class="scroll-btn">
+          <img src="/static/images/whiteLeftIcon.png" />
+        </button>
 
         <% for(let i = 0; i < product.slice(0, 8).length; i++) { %>
         <div class="box" id="<%= product[i].id %>">
@@ -144,7 +146,9 @@
         </div>
         <% } %>
 
-        <button id="scrollRight" class="scroll-btn">></button>
+        <button id="scrollRight" class="scroll-btn">
+          <img src="/static/images/whiteRightIcon.png" />
+        </button>
       </div>
     </div>
   </body>

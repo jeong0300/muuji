@@ -97,15 +97,31 @@ const check = async () => {
   }
 };
 
+const detailEditor = new toastui.Editor({
+  el: document.querySelector("#detailEditor"),
+  height: "170px",
+  initialEditType: "wysiwyg",
+  previewStyle: "vertical",
+  initialValue: "상세 정보를 입력해주세요.",
+});
+
 // 상품 등록하기
 const addData = async () => {
   const name = document.getElementById("name").value;
   const price = document.getElementById("price").value;
-  const detail = document.getElementById("detail").value;
+  const detail = detailEditor.getHTML();
   const category = document.querySelector(
     'input[name="category"]:checked'
   ).value;
   const image = document.getElementById("preview").dataset.imageUrl || null;
+
+  if (!name || !price || !detail || !image) {
+    Swal.fire({
+      icon: "error",
+      text: "정보를 모두 기입해주세요",
+    });
+    return;
+  }
 
   axios({
     method: "post",
@@ -113,7 +129,10 @@ const addData = async () => {
     data: { name, price, detail, image, category },
   })
     .then((res) => {
-      alert("등록성공");
+      Swal.fire({
+        title: "등록 완료되었습니다!",
+        icon: "success",
+      });
       window.location.reload();
     })
     .catch((e) => {
