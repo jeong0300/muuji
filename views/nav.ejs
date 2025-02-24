@@ -44,7 +44,7 @@
           aria-labelledby="offcanvasNavbarLabel"
         >
           <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Muuji</h5>
+            <h4 class="offcanvas-title" id="offcanvasNavbarLabel">Muuji</h4>
             <button
               type="button"
               class="btn-close"
@@ -54,17 +54,40 @@
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item" onclick="main()">Home</li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="showAlert()">Login</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="showAlert()">Favorite</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="move('shoppingCart')"
-                  >Shopping Cart</a
-                >
+              <li class="nav-item remove">Product</li>
+              <hr />
+              <li class="nav-item" onclick="move('speaker')">Speaker</li>
+              <br />
+              <li class="nav-item" onclick="move('headphone')">Headphone</li>
+              <br />
+              <li class="nav-item" onclick="move('soundbar')">Soundbar</li>
+              <br />
+              <li class="nav-item" onclick="move('tv')">TV</li>
+              <br />
+              <hr />
+              <br />
+              <li class="nav-item">Atelier</li>
+              <br />
+              <li class="nav-item">B&O의 세계</li>
+              <br />
+              <li class="nav-item">고객 지원</li>
+              <br />
+              <hr />
+              <br />
+              <li class="nav-item remove">
+                <div class="flex">
+                  <img src="/static/images/pinIcon.png" alt="pin icon" />
+                  <h6>매장 찾기</h6>
+                </div>
+                <br />
+                <div class="flex">
+                  <img
+                    id="icon"
+                    src="/static/images/personIcon.png"
+                    alt="person icon"
+                  />
+                  <h6>계정</h6>
+                </div>
               </li>
             </ul>
           </div>
