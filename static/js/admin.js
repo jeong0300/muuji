@@ -44,6 +44,7 @@ async function previewImage(event) {
   }
 }
 
+// 이미지 업로드
 async function uploadImage(file) {
   const formData = new FormData();
   formData.append("image", file);
@@ -106,16 +107,21 @@ const detailEditor = new toastui.Editor({
 });
 
 // 상품 등록하기
+function removeHTMLTags(str) {
+  return str.replace(/<\/?[^>]+(>|$)/g, ""); // 태그를 제거
+}
+
 const addData = async () => {
   const name = document.getElementById("name").value;
   const price = document.getElementById("price").value;
   const detail = detailEditor.getHTML();
+  const cleanedDetail = removeHTMLTags(detail);
   const category = document.querySelector(
     'input[name="category"]:checked'
   ).value;
   const image = document.getElementById("preview").dataset.imageUrl || null;
 
-  if (!name || !price || !detail || !image) {
+  if (!name || !price || !detail || !cleanedDetail) {
     Swal.fire({
       icon: "error",
       text: "정보를 모두 기입해주세요",
@@ -126,7 +132,7 @@ const addData = async () => {
   axios({
     method: "post",
     url: "/admin/addData",
-    data: { name, price, detail, image, category },
+    data: { name, price, detail: cleanedDetail, image, category },
   })
     .then((res) => {
       Swal.fire({

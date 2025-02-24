@@ -3,6 +3,11 @@
   <head>
     <link rel="stylesheet" href="/static/css/modify.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Editor's Style -->
+    <link
+      rel="stylesheet"
+      href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>상품 수정</title>
@@ -84,11 +89,10 @@
             placeholder="가격을 입력해 주세요."
           />
 
-          <input
-            id="detail"
-            value="<%= product[0].detail %>"
-            placeholder="상세를 입력해 주세요."
-          />
+          <div class="editor-container">
+            <div id="detailEditor"
+              data-detail='<%= product[0].detail.replaceAll("\\\"", "&quot;").replaceAll("\\\'", "&#39;") %>'></div>
+          </div>
 
           <div class="radioAll">
             <input type="radio" name="category" value="Speaker" <%=
@@ -122,6 +126,7 @@
       </div>
     </div>
 
+    <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
     <script src="/static/js/modify.js"></script>
   </body>
 </html>

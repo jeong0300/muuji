@@ -1,10 +1,14 @@
-// 페이지 로드 시 이미지 상태 확인
+// Toast UI Editor 초기화
+let editor;
+
 window.onload = function () {
   const preview = document.getElementById("preview");
   const label = document.querySelector(".image-upload span");
   const imageUpload = document.querySelector(".image-upload");
 
-  // 이미 이미지가 존재하는 경우
+  const editorElement = document.getElementById("detailEditor");
+  const detailContent = editorElement.dataset.detail || "";
+
   if (preview.src && preview.src.trim() !== "" && preview.src !== "undefined") {
     preview.style.display = "block";
     label.style.display = "none";
@@ -14,6 +18,14 @@ window.onload = function () {
     label.style.display = "block";
     imageUpload.style.border = "2px dashed #ccc";
   }
+
+  editor = new toastui.Editor({
+    el: editorElement,
+    height: "300px",
+    initialEditType: "wysiwyg",
+    previewStyle: "vertical",
+    initialValue: detailContent,
+  });
 };
 
 async function uploadImage(file) {
@@ -75,6 +87,12 @@ async function previewImage(event) {
   }
 }
 
+// 수정 후 등록
+
+function removeHTMLTags(str) {
+  return str.replace(/<\/?[^>]+(>|$)/g, ""); // 태그를 제거
+}
+
 async function modifyProduct(id) {
   const preview = document.getElementById("preview");
   let imageUrl = preview.dataset.imageUrl;
@@ -84,12 +102,16 @@ async function modifyProduct(id) {
   }
 
   const form = document.forms["updateData"];
+
+  const detailContent = editor.getHTML();
+  const cleanedDetail = removeHTMLTags(detailContent);
+
   const data = {
     id: id,
     name: form["name"].value,
     price: form["price"].value,
     category: form["category"].value,
-    detail: form["detail"].value,
+    detail: cleanedDetail,
     image: imageUrl,
   };
 
