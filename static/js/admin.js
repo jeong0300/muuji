@@ -132,8 +132,9 @@ const addData = async () => {
       Swal.fire({
         title: "등록 완료되었습니다!",
         icon: "success",
+      }).then(() => {
+        window.location.reload();
       });
-      window.location.reload();
     })
     .catch((e) => {
       console.log("에러 :", e);

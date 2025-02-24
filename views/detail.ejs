@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="/static/css/detail.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("nav") %>
+
+    <div class="box">
+      <div class="boxImg">
+        <img src="/static/images/detailCarosel.webp" alt="detail image" />
+        <div class="black">
+          <div class="innerText">
+            <p class="text text1">베오플레이 11</p>
+            <h1 class="text text2">볼 수 있는 사운드</h1>
+            <br />
+            <h4 class="text text3">
+              더욱 풍성해진 음악, 품격이 더해진 편안함, 그리고 노래하는 빛.
+              <br />
+              베오플레이 11 무선 이어버드와 함께라면 모든 음이 생생하게
+              느껴집니다.
+            </h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <% for(let i = 0; i < detail.length; i++) { %>
+    <div id="container">
+      <div class="imgContainer"><img src="<%= detail[i].image %>" /></div>
+      <div class="textContainer">
+        <p>Beoplay Eleven</p>
+        <h2><%= detail[i].name %></h2>
+        <p><%= detail[i].detail %></p>
+        <hr />
+        <h3>₩<%= detail[i].price %></h3>
+        <br />
+        <div class="cartBtn">장바구니 추가</div>
+        <div class="storeBtn">매장에서 체험하기</div>
+        <p>✔ 무료 배달</p>
+        <p>✔ 최대 3년 보증</p>
+      </div>
+    </div>
+    <% } %>
+  </body>
+</html>

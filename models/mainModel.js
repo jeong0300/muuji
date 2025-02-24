@@ -19,6 +19,13 @@ const getAllProduct = async () => {
   }
 };
 
+const moveDetail = async (id) => {
+  const query = `SELECT * FROM products WHERE id = ${id}`;
+  const [rows] = await pool.query(query);
+  return rows;
+};
+
 module.exports = {
   getAllProduct,
+  moveDetail,
 };

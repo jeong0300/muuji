@@ -91,65 +91,134 @@ h5 {
 }
 
 /* product */
+.productImg {
+  display: flex;
+  overflow-x: hidden;
+  width: 80vw;
+  scroll-behavior: smooth;
+}
+
+.scroll-btn {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(118, 118, 118, 0.5);
+  border: none;
+  border-radius: 50%;
+}
+
+.left-btn,
+.right-btn {
+  position: absolute;
+  top: 60%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.left-btn {
+  left: 100px;
+}
+
+.right-btn {
+  right: 100px;
+}
+
 .product {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 100px;
+  position: relative;
 }
 
 .product > h1 {
   margin-bottom: 20px;
 }
 
-.productImg {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: scroll; /* 스크롤을 활성화 */
-  width: 100%;
-  scroll-snap-type: x mandatory; /* 스냅 설정 */
-  scroll-padding-left: 20px; /* 처음 요소의 왼쪽 여백 */
-  position: relative; /* 버튼을 이 영역 내에서 배치하도록 설정 */
+.scroll-btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.scroll-btn:active {
+  border: none;
+}
+
+.scroll-btn:focus {
+  border: none;
 }
 
 .productImg .box {
   flex: 0 0 auto;
   margin-right: 10px;
-  scroll-snap-align: start; /* 각 항목을 스냅하도록 설정 */
-  width: 300px; /* 요소의 고정 크기 지정 */
-}
-
-.scroll-btn {
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(118, 118, 118, 0.5);
-  border: none;
-  border-radius: 50%;
-  /* padding: 5px; */
-  cursor: pointer;
-  z-index: 100;
-  transition: background-color 0.3s ease;
+  scroll-snap-align: start;
+  width: 300px;
 }
 
 .scroll-btn img {
   max-width: 70%;
-}
-
-#scrollLeft {
-  left: 10px;
-}
-
-#scrollRight {
-  right: 10px;
-}
-
-.scroll-btn:hover {
-  background-color: rgba(255, 255, 255, 0.7);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
 }
 
 .imgBox img {
-  width: 450px;
+  max-width: 300px;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  cursor: pointer;
+}
+
+.textBox h2,
+p {
+  cursor: pointer;
+}
+
+.textBox p {
+  margin-top: 10px;
+}
+
+.textBox h2 {
+  position: relative;
+  display: inline-block;
+}
+
+.textBox h2::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 3px;
+  background-color: #444;
+  transition: width 0.3s ease-in-out;
+}
+
+.textBox h2:hover::after {
+  width: 100%;
+}
+
+/* 매장 찾기 구간 */
+.findingStore {
+  max-width: 1280px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.storeImg img {
+  width: 50%;
+}
+
+.storeText {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

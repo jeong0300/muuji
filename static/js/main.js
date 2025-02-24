@@ -8,19 +8,50 @@ function showAlert() {
 
 // 스크롤 이동
 document.addEventListener("DOMContentLoaded", function () {
-  const productImg = document.querySelector(".productImg");
+  const scrollLeftButton = document.getElementById("scrollLeft");
+  const scrollRightButton = document.getElementById("scrollRight");
+  const productContainer = document.getElementById("productContainer");
 
-  document.getElementById("scrollLeft").addEventListener("click", function () {
-    productImg.scrollBy({
-      left: -300,
-      behavior: "smooth",
+  if (scrollLeftButton && scrollRightButton && productContainer) {
+    scrollLeftButton.addEventListener("click", function () {
+      smoothScroll(productContainer, -1200);
     });
-  });
 
-  document.getElementById("scrollRight").addEventListener("click", function () {
-    productImg.scrollBy({
-      left: 300,
-      behavior: "smooth",
+    scrollRightButton.addEventListener("click", function () {
+      smoothScroll(productContainer, 1200);
     });
-  });
+  }
+
+  function smoothScroll(element, distance) {
+    const start = element.scrollLeft;
+    const end = start + distance;
+    const duration = 700;
+    let startTime = null;
+
+    function scrollAnimation(currentTime) {
+      if (!startTime) startTime = currentTime;
+      const elapsedTime = currentTime - startTime;
+      const progress = Math.min(elapsedTime / duration, 1);
+
+      element.scrollLeft = start + (end - start) * progress;
+
+      if (elapsedTime < duration) {
+        requestAnimationFrame(scrollAnimation);
+      }
+    }
+
+    requestAnimationFrame(scrollAnimation);
+  }
 });
+
+// 상세 페이지로 이동
+function moveDetail(id) {
+  axios
+    .get(`/muuji/detail/${id}`)
+    .then((response) => {
+      window.location.href = `/muuji/detail/${id}`;
+    })
+    .catch((error) => {
+      console.error("Error fetching product details:", error);
+    });
+}

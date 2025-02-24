@@ -11,4 +11,10 @@ const moveMain = async (req, res) => {
   }
 };
 
-module.exports = { moveMain };
+// detail 페이지로 이동
+const moveDetail = async (req, res) => {
+  const detail = await products.moveDetail(req.params.id);
+  res.render("detail", { detail });
+};
+
+module.exports = { moveMain, moveDetail };

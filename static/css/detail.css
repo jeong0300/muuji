@@ -1,0 +1,112 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+.box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.boxImg img {
+  width: 100vw;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  animation: fadeIn 2s forwards;
+}
+
+.black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.333);
+  color: white;
+  z-index: 1;
+}
+
+.innerText {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideUp 2s ease-out 1s forwards;
+}
+
+.text {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideUp 2s ease-out forwards;
+}
+
+.text1 {
+  animation-delay: 1s;
+}
+
+.text2 {
+  animation-delay: 1.5s;
+}
+
+.text3 {
+  animation-delay: 2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgContainer img {
+  width: 500px;
+  margin-right: 200px;
+}
+
+.cartBtn {
+  background-color: rgb(255, 209, 44);
+  border: 1px solid rgb(255, 209, 44);
+  padding: 5px 20px;
+  border-radius: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.storeBtn {
+  border: 1px solid black;
+  padding: 5px 20px;
+  border-radius: 30px;
+  text-align: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <link rel="stylesheet" href="/static/css/main.css" />
     <!-- 경고창 -->
     <link
@@ -129,13 +131,13 @@
     <div class="product">
       <h1>Sound. Video. Your choice.</h1>
 
-      <div class="productImg">
-        <button id="scrollLeft" class="scroll-btn">
-          <img src="/static/images/whiteLeftIcon.png" />
-        </button>
+      <button class="scroll-btn left-btn left-btn-2" id="scrollLeft">
+        <img src="/static/images/whiteLeftIcon.png" />
+      </button>
 
+      <div class="productImg" id="productContainer">
         <% for(let i = 0; i < product.slice(0, 8).length; i++) { %>
-        <div class="box" id="<%= product[i].id %>">
+        <div class="box" onclick="moveDetail('<%= product[i].id %>')">
           <div class="imgBox">
             <img src="<%= product[i].image %>" />
           </div>
@@ -145,11 +147,25 @@
           </div>
         </div>
         <% } %>
+      </div>
 
-        <button id="scrollRight" class="scroll-btn">
-          <img src="/static/images/whiteRightIcon.png" />
-        </button>
+      <button class="scroll-btn right-btn right-btn-2" id="scrollRight">
+        <img src="/static/images/whiteRightIcon.png" />
+      </button>
+    </div>
+
+    <div class="findingStore">
+      <div class="storeImg">
+        <img src="/static/images/FindingStoreImage.webp" alt="storeImage" />
+      </div>
+      <div class="storeText">
+        <h5>It's close and friendly</h5>
+        <h1>Store Experience</h1>
+        <p>Look at the store, look at Bang & Bluefsen.</p>
+        <div class="storeBtn">Finding Store</div>
       </div>
     </div>
+
+    <script src="/static/js/main.js"></script>
   </body>
 </html>
