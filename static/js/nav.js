@@ -39,3 +39,19 @@ function moveDetail(id) {
     window.location.href = `../html/bearCraftShopDetail.html?id=${id}`;
   }, 500);
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  // 서버에서 장바구니 총 수량을 가져오는 API 호출
+  axios
+    .get("/detail/total")
+    .then((response) => {
+      const totalCount = response.data.totalCount;
+      const numElement = document.getElementById("num");
+
+      // num에 총 수량 표시
+      numElement.textContent = totalCount;
+    })
+    .catch((error) => {
+      console.error("Failed to load cart total:", error);
+    });
+});

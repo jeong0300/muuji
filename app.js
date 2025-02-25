@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 
 const adminRouter = require("./routes/adminRouter");
 const mainRouter = require("./routes/mainRouter");
+const detailRouter = require("./routes/detailRouter");
 const { upload } = require("./controllers/adminController");
 
 app.use(express.urlencoded({ extended: true }));
@@ -18,6 +19,7 @@ app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use("/admin", adminRouter);
 app.use("/muuji", mainRouter);
+app.use("/detail", detailRouter);
 
 app.set("views", path.join(__dirname, "/views"));
 app.set("view engine", "ejs");
