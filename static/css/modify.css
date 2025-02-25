@@ -124,6 +124,32 @@ button:hover {
   margin-top: 10px;
 }
 
+select[name="category"] {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+select[name="category"]:focus {
+  outline: none;
+  border-color: #ffdb58;
+}
+
+option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+option:selected {
+  background-color: #ffdb58;
+}
+
 .font {
   font-size: 16px;
 }

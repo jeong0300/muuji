@@ -95,21 +95,12 @@
           </div>
 
           <div class="radioAll">
-            <input type="radio" name="category" value="Speaker" <%=
-            product[0].category === 'Speaker' ? 'checked' : '' %> />
-            <div class="font">Speaker</div>
-
-            <input type="radio" name="category" value="Headphones" <%=
-            product[0].category === 'Headphones' ? 'checked' : '' %> />
-            <div class="font">Headphones</div>
-
-            <input type="radio" name="category" value="Soundbar" <%=
-            product[0].category === 'Soundbar' ? 'checked' : '' %> />
-            <div class="font">Soundbar</div>
-
-            <input type="radio" name="category" value="TV" <%=
-            product[0].category === 'TV' ? 'checked' : '' %> />
-            <div class="font">TV</div>
+            <select name="category" required>
+              <option value="Speaker" <%= product[0].category === 'Speaker' ? 'selected' : '' %>>Speaker</option>
+              <option value="Headphones" <%= product[0].category === 'Headphones' ? 'selected' : '' %>>Headphones</option>
+              <option value="Soundbar" <%= product[0].category === 'Soundbar' ? 'selected' : '' %>>Soundbar</option>
+              <option value="TV" <%= product[0].category === 'TV' ? 'selected' : '' %>>TV</option>
+            </select>                                       
           </div>
 
           <button

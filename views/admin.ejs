@@ -58,14 +58,12 @@
           </div>
 
           <div class="radioAll">
-            <input type="radio" name="category" value="Speaker" checked />
-            <div class="font">Speaker</div>
-            <input type="radio" name="category" value="Headphones" />
-            <div class="font">Headphones</div>
-            <input type="radio" name="category" value="Soundbar" />
-            <div class="font">Soundbar</div>
-            <input type="radio" name="category" value="TV" />
-            <div class="font">TV</div>
+            <select name="category" required>
+              <option value="Speaker">Speaker</option>
+              <option value="Headphones">Headphones</option>
+              <option value="Soundbar">Soundbar</option>
+              <option value="TV">TV</option>
+            </select>
           </div>
 
           <button type="button" id="btnSelect" onclick="addData()">등록</button>

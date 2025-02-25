@@ -107,20 +107,38 @@ button {
   background-color: #45a049;
 }
 
-/* 상품명 입력란 크기 늘리기 */
-#name {
-  flex: 1;
-  padding: 12px;
-  border-radius: 4px;
-  font-size: 16px;
-}
-
 /* 상품 카테고리 선택 */
 .radioAll {
   display: flex;
   gap: 15px;
   align-items: center;
   margin-top: 10px;
+}
+
+select[name="category"] {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+select[name="category"]:focus {
+  outline: none;
+  border-color: #ffdb58;
+}
+
+option {
+  padding: 10px;
+  font-size: 16px;
+}
+
+option:selected {
+  background-color: #ffdb58;
 }
 
 /* 테이블 스타일 */

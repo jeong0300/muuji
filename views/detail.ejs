@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="/static/css/detail.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>MUUJI</title>
   </head>
   <body>
     <%- include("nav") %>
@@ -31,19 +31,24 @@
     <% for(let i = 0; i < detail.length; i++) { %>
     <div id="container">
       <div class="imgContainer"><img src="<%= detail[i].image %>" /></div>
-      <div class="textContainer">
-        <p>Beoplay Eleven</p>
-        <h2><%= detail[i].name %></h2>
-        <%= detail[i].detail %>
+      <div class="textContainer innerText">
+        <p class="text text4">Beoplay Eleven</p>
+        <h2 class="text text5"><%= detail[i].name %></h2>
+        <p class="text text6"><%= detail[i].detail %></p>
         <hr />
-        <h3>₩<%= detail[i].price %></h3>
+        <h3 class="text text7">₩<%= detail[i].price %></h3>
         <br />
-        <div class="cartBtn">장바구니 추가</div>
-        <div class="storeBtn">매장에서 체험하기</div>
+        <div class="cartBtn" onclick="addcart('<%=detail[i].id%>')">
+          장바구니 추가
+        </div>
+        <div class="storeBtn" onclick="showAlert()">매장에서 체험하기</div>
+        <br />
         <p>✔ 무료 배달</p>
         <p>✔ 최대 3년 보증</p>
       </div>
     </div>
     <% } %>
+
+    <script src="/static/js/detail.js"></script>
   </body>
 </html>

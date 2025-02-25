@@ -116,9 +116,8 @@ const addData = async () => {
   const price = document.getElementById("price").value;
   const detail = detailEditor.getHTML();
   const cleanedDetail = removeHTMLTags(detail);
-  const category = document.querySelector(
-    'input[name="category"]:checked'
-  ).value;
+  const category = document.querySelector('select[name="category"]').value;
+
   const image = document.getElementById("preview").dataset.imageUrl || null;
 
   if (!name || !price || !detail || !cleanedDetail) {
