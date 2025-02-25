@@ -43,6 +43,13 @@ body {
   animation: slideUp 2s ease-out 1s forwards;
 }
 
+hr {
+  opacity: 1;
+  border: none;
+  height: 2px;
+  width: 100%;
+}
+
 .text {
   opacity: 0;
   transform: translateY(30px);

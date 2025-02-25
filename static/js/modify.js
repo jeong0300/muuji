@@ -121,8 +121,12 @@ async function modifyProduct(id) {
     data: data,
   })
     .then((res) => {
-      alert("수정 성공!");
-      window.location.href = "/";
+      Swal.fire({
+        title: "수정 완료되었습니다!",
+        icon: "success",
+      }).then(() => {
+        window.location.href = "/";
+      });
     })
     .catch((e) => {
       alert("수정 실패:", e);

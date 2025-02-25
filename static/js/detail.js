@@ -30,3 +30,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   textElements.forEach((el) => observer.observe(el));
 });
+
+function addcart(id) {
+  axios({
+    method: "post",
+    url: `/detail/addCart/${id}`,
+    data: data,
+  }).then((res) => {});
+}
