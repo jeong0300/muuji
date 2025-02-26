@@ -75,18 +75,28 @@
               <hr />
               <br />
               <li class="nav-item remove">
-                <div class="flex">
+                <div class="flex" onclick="showAlert()">
                   <img src="/static/images/pinIcon.png" alt="pin icon" />
                   <h6>매장 찾기</h6>
                 </div>
                 <br />
-                <div class="flex">
+                <div class="flex" onclick="showAlert()">
                   <img
                     id="icon"
                     src="/static/images/personIcon.png"
                     alt="person icon"
                   />
                   <h6>계정</h6>
+                </div>
+                <div class="flex cart">
+                  <a href="/cart" class="flex">
+                    <img
+                      id="icon"
+                      src="/static/images/shoppingCartIcon.png"
+                      alt="shopping icon"
+                    />
+                    <h6>장바구니</h6>
+                  </a>
                 </div>
               </li>
             </ul>
