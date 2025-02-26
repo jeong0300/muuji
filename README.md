@@ -201,7 +201,7 @@
 <h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 해당 id가 중복하여 들어가면 답변을 보내 다른 경고창을 출력</h4>
 <div align="center">
  
- ![Image](https://github.com/user-attachments/assets/b79467a3-1b41-4537-8ed3-e1625fee474c)
+ ![Image](https://github.com/user-attachments/assets/30ee49c9-0c21-4601-b407-7768e2842fe5)
   
 </div>
 
