@@ -165,28 +165,6 @@
 
 <br/>
 
-<h2> 🌟 장바구니 구현 </h2>
-<h3> 장바구니 추가 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp '장바구니 추가' 버튼 클릭 시 장바구니 테이블에 추가</h4>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 해당 id가 중복하여 들어가면 답변을 보내 다른 경고창을 출력</h4>
-<div align="center">
- 
- ![Image](https://github.com/user-attachments/assets/b79f46df-7bf3-4265-9fcf-6aaecedd9fbd)
-  
-</div>
-
-<br/>
-
-<h3> 장바구니 삭제 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp '삭제' 버튼 클릭 시 해당 id의 제품 삭제</h4>
-<div align="center">
-
- ![Image](https://github.com/user-attachments/assets/17c10230-ae18-4db5-8d06-60cdf040d749)
-  
-</div>
-
-<br/>
-
 # 📄 전체
 
 <div align="center">
