@@ -174,9 +174,12 @@ body {
   }
 
   .boxContainer {
+    display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 50px;
+    margin: 0 auto 50px 20px;
+    width: fit-content;
   }
 
   .imgContainer img {
