@@ -31,13 +31,15 @@
   <img src="https://img.shields.io/badge/mysql Workbench-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQLWorkbench Badge" />
 
   <h2> 버전 관리 </h2> 
-  <img src="https://img.shields.io/badge/git-%23F05032.svg?&style=for-the-badge&logo=git&logoColor=white" />
-  <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/git-%23F05032.svg?&style=for-the-badge&logo=git&logoColor=white" alt="git Badge" />
+  <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" alt="github Badge" />
 
   <h2> 라이브러리 </h2>
-  <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white" />
-  <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" />
+  <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white" alt="bootstrap Badge" />
+  <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" alt="express Badge" />
   <img src="https://img.shields.io/badge/ejs-%23B4CA65.svg?style=for-the-badge&logo=ejs&logoColor=black" alt="EJS Badge" />
+  <br/>
+  <img src="https://img.shields.io/badge/Toast_UI_Editor-FFDD00?style=for-the-badge&logo=ToastUI&logoColor=black" />
   
 </div>
 
@@ -48,14 +50,18 @@
 <div align="center">
  <table>
   <tr>
+   <th> ADMIN </th>
+   <th> MODIFY </th>
    <th> MAIN </th>
    <th> DETAIL </th>
    <th> SHOPPING CART </th>
   </tr>
   <tr>
+   <td><img src="https://github.com/user-attachments/assets/c4cbd7da-9934-48bb-8df6-dbcba1865613" width="250" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/58183ea2-aeba-4f1f-87b8-5448d7b6baec" width="250" height="600"></td>
     <td><img src="https://github.com/user-attachments/assets/109f639a-fc4c-4cd5-8bad-b212ea735fc5" width="250" height="600"></td>
     <td><img src="https://github.com/user-attachments/assets/08327c6e-1c2b-4c6e-b819-89686407202d" width="250" height="600"></td>
-    <td><img src="https://github.com/user-attachments/assets/c7001968-8383-43d1-b589-aa849e5bf625" width="400" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/722ce9bc-77d5-401d-858f-31c28cf705a1" width="400" height="600"></td>
   </tr>
  </table>
 </div>
@@ -68,13 +74,13 @@
  <table>
   <tr>
    <th> MAIN </th>
-   <th> PRODUCT </th>
-   <th> RECIPE </th>
+   <th> DETAIL </th>
+   <th> SHOPPING CART </th>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/ac581a47-064b-49a4-bc36-a22e99055741" width="100" height="700"></td>
-    <td><img src="https://github.com/user-attachments/assets/0b63a6c2-2785-4128-8807-e528ec8dd4e9" width="200" height="700"></td>
-    <td><img src="https://github.com/user-attachments/assets/8d133e1f-12c6-4a1d-afcf-1d5ba795d86f" width="200" height="700"></td>
+    <td><img src="https://github.com/user-attachments/assets/941055fc-2afc-4c7f-80ae-96c51d8ade65" width="100" height="700"></td>
+    <td><img src="https://github.com/user-attachments/assets/d448cae7-9a7f-492e-948b-664014e81b57" width="150" height="700"></td>
+    <td><img src="https://github.com/user-attachments/assets/87d8032c-d1ba-4f96-a221-6fd388d0cbed" width="150" height="700"></td>
   </tr>
  </table>
 </div>
@@ -83,7 +89,7 @@
 
 # ⚙ 주요 기능
 
-<h2> 🌟 애니메이션 </h2>
+<h2> 🌟 제품 등록하기 </h2>
 <h3> 제품 떠오르게 하기 </h3>
 <h4>&nbsp&nbsp&nbsp&nbsp-&nbsp각 요소에 딜레이 적용하여 떠오르게 하기</h4>
 <div align="center">
