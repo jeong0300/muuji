@@ -33,6 +33,7 @@ body {
   background-color: rgba(0, 0, 0, 0.333);
   color: white;
   z-index: 1;
+  text-align: center;
 }
 
 .innerText {
@@ -44,6 +45,10 @@ body {
   transform: translateY(30px);
   opacity: 0;
   animation: slideUp 2s ease-out 1s forwards;
+}
+
+.textContainer {
+  width: 30%;
 }
 
 hr {
@@ -107,6 +112,7 @@ hr {
 }
 
 #container {
+  margin: 70px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,4 +139,25 @@ hr {
   text-align: center;
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #container {
+    display: block;
+  }
+
+  .imgContainer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .imgContainer img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .textContainer {
+    width: 100%;
+    padding: 30px;
+  }
 }

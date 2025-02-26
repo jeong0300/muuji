@@ -8,11 +8,55 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/static/css/cart.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MUUJI</title>
   </head>
   <body>
     <%- include("nav") %>
+
+    <div class="container">
+      <div class="topTitle">
+        <h3>장바구니에 담긴 품목</h3>
+      </div>
+      <div class="flexProduct">
+        <div class="cartProdcut">
+          <% for(let i = 0; i < product.length; i++){ %>
+          <div class="boxContainer">
+            <div class="imgContainer">
+              <img src="<%= product[i].image %>" alt="product image" />
+            </div>
+
+            <div class="textContainer">
+              <div class="nameBox">
+                <h3><%= product[i].name %></h3>
+                <p><%= product[i].cnt %>개</p>
+              </div>
+              <div class="cntPriceBox">
+                <h4>₩<%= product[i].price %></h4>
+                <div
+                  class="deleteBtn"
+                  onclick="productDelete('<%= product[i].id %>')"
+                >
+                  삭제하기
+                </div>
+              </div>
+            </div>
+          </div>
+          <% } %>
+        </div>
+
+        <div class="cartRecipe">
+          <h4>주문 요약</h4>
+          <p>주문 금액 : <%= totalPrice.toLocaleString() %> 원</p>
+          <hr />
+          <p>이 주문은 무료 배송이 적용됩니다</p>
+          <div class="buyBtn" onclick="showAlert()">주문하기</div>
+          <div class="shopingBtn"><a href="/muuji">쇼핑 계속 하기</a></div>
+        </div>
+      </div>
+    </div>
+    <script src="/static/js/cart.js"></script>
   </body>
 </html>

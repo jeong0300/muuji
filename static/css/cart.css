@@ -1,0 +1,191 @@
+/* 기본 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* 상단 제목 */
+.topTitle {
+  margin: 50px 0;
+  text-align: center;
+}
+
+.topTitle h3 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 제품 영역 */
+.flexProduct {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+/* 장바구니 제품 리스트 */
+.cartProdcut {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 60%;
+}
+
+.boxContainer {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 20px 50px 20px 0;
+  margin-right: 10px;
+}
+
+.imgContainer img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 20px;
+  width: calc(100% - 220px);
+}
+
+.nameBox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.deleteBtn {
+  background-color: rgb(235, 100, 100);
+  color: white;
+  border-radius: 10px;
+  padding: 10px 20px;
+}
+
+.nameBox h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.cntPriceBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cntPriceBox p {
+  font-size: 14px;
+  color: #777;
+}
+
+.cntPriceBox h4 {
+  font-size: 18px;
+  color: red;
+}
+
+/* 주문 요약 영역 */
+.cartRecipe {
+  position: sticky;
+  top: 100px;
+  width: 40%;
+  height: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cartRecipe h4 {
+  margin: 0 0 20px 30px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.cartRecipe p {
+  margin: 0 0 20px 30px;
+  font-size: 14px;
+  color: #333;
+}
+
+.cartRecipe hr {
+  border: 0;
+  border-top: 1px solid #e0e0e0;
+  margin: 20px 0;
+}
+
+.buyBtn {
+  margin: 20px auto;
+  background-color: #e6bd27;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: bold;
+  max-width: 400px;
+}
+
+.buyBtn:hover {
+  background-color: rgb(178, 153, 56);
+}
+
+.shopingBtn {
+  margin: 20px auto;
+  border: 2px solid black;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.shopingBtn a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .flexProduct {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cartProdcut {
+    width: 100%;
+  }
+
+  .cartRecipe {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .boxContainer {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+  }
+
+  .imgContainer img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .textContainer {
+    width: 100%;
+    text-align: center;
+  }
+}
