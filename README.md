@@ -165,36 +165,6 @@
 
 <br/>
 
-# 🖥 전체>&nbsp&nbsp&nbsp&nbsp-&nbsp '삭제' 버튼 클릭 시 Axios 요청을 통해 해당 id의 제품을 삭제</h4>
-<div align="center">
-
- ![Image](https://github.com/user-attachments/assets/42b8ecf2-65cb-438f-b74d-fd9910f924ab)
-  
-</div>
-
-<br/>
-
-<h2> 🌟 테이블에 있는 정보 출력 </h2>
-<h3> 메인 페이지 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 메인 페이지 요청할 때 랜더링하면서 제품 테이블의 정보를 모두 전달</h4>
-<div align="center">
- 
-  ![Image](https://github.com/user-attachments/assets/82776f5d-54a2-4d9c-8e06-4236c081d64a)
-  
-</div>
-
-<br/>
-
-<h3> 제품 페이지 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 제품을 클릭하면 ID를 서버로 보내고, 해당 ID에 맞는 상세 정보를 출력</h4>
-<div align="center">
-
- ![Image](https://github.com/user-attachments/assets/31732c39-9f0e-45a8-b2bc-6c426932e99c)
-  
-</div>
-
-<br/>
-
 <h2> 🌟 장바구니 구현 </h2>
 <h3> 장바구니 추가 </h3>
 <h4>&nbsp&nbsp&nbsp&nbsp-&nbsp '장바구니 추가' 버튼 클릭 시 장바구니 테이블에 추가</h4>
