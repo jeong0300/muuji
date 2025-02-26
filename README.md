@@ -1,4 +1,4 @@
-![Image](https://github.com/user-attachments/assets/6466aac6-7cd2-465a-b9f9-f9d5d862f5dc)
+![Image](https://github.com/user-attachments/assets/cc431973-f566-4a3d-911f-e3d4bf383e51)
 
 <br/>
 
@@ -22,34 +22,23 @@
   <img src="https://img.shields.io/badge/html5-F0A228.svg?&style=for-the-badge&logo=html5&logoColor=white" alt="HTML5 Badge" /> 
   <img src="https://img.shields.io/badge/css-%231572B6.svg?&style=for-the-badge&logo=css&logoColor=white"  alt="CSS Badge" /> 
   <img src="https://img.shields.io/badge/javascript-%23F7DF1E.svg?&style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript Badge" />
+  <br/>
   <img src="https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL Badge" />
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white" alt="nodeJs Badge" />
 
   <h2> 개발 도구 </h2> 
   <img src="https://img.shields.io/badge/visual%20studio%20code-%23007ACC.svg?&style=for-the-badge&logo=visual%20studio%20code&logoColor=white" />
+  <img src="https://img.shields.io/badge/mysql Workbench-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQLWorkbench Badge" />
 
   <h2> 버전 관리 </h2> 
-  <img src="https://img.shields.io/badge/git-%23F05032.svg?&style=for-the-badge&logo=git&logoColor=white" /> <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
+  <img src="https://img.shields.io/badge/git-%23F05032.svg?&style=for-the-badge&logo=git&logoColor=white" />
+  <img src="https://img.shields.io/badge/github-%23181717.svg?&style=for-the-badge&logo=github&logoColor=white" />
 
   <h2> 라이브러리 </h2>
   <img src="https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white" />
-
-</div>
-
-<br/>
-
-# 📝 프로토타입
-
-<div align="center">
- <table>
-  <tr>
-   <th> WEB </th>
-   <th> MOBILE </th>
-  </tr>
-  <tr>
-    <td><img src="https://github.com/user-attachments/assets/760efe69-0674-4b8f-8486-9ade4e38ea40" width="400" height="600"></td>
-    <td><img src="https://github.com/user-attachments/assets/b5bdbd4b-c828-4468-97f9-ff3c87a3f11c" width="400" height="600"></td>
-  </tr>
- </table>
+  <img src="https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB" />
+  <img src="https://img.shields.io/badge/ejs-%23B4CA65.svg?style=for-the-badge&logo=ejs&logoColor=black" alt="EJS Badge" />
+  
 </div>
 
 <br/>
@@ -60,13 +49,13 @@
  <table>
   <tr>
    <th> MAIN </th>
-   <th> PRODUCT </th>
-   <th> RECIPE </th>
+   <th> DETAIL </th>
+   <th> SHOPPING CART </th>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/a1d98eb7-1282-4111-ada4-bfa6c7fbfcfc" width="250" height="600"></td>
-    <td><img src="https://github.com/user-attachments/assets/8425b72a-41a3-4da9-829b-63a1eef68196" width="250" height="600"></td>
-    <td><img src="https://github.com/user-attachments/assets/cf8dc686-0e88-4144-8f92-9a9d12558d2e" width="300" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/109f639a-fc4c-4cd5-8bad-b212ea735fc5" width="250" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/08327c6e-1c2b-4c6e-b819-89686407202d" width="250" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/c7001968-8383-43d1-b589-aa849e5bf625" width="400" height="600"></td>
   </tr>
  </table>
 </div>
