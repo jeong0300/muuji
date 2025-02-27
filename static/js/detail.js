@@ -32,54 +32,57 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 장바구니 추가
-function addcart(productid) {
-  console.log("Product ID:", productid);
+let isAdding = false; // 전역 중복 방지 변수
 
-  axios({
-    method: "post",
-    url: "/detail/addCart",
-    data: { id: productid },
-  })
-    .then((res) => {
-      if (res.data === "increment") {
-        Swal.fire({
-          title: "이미 장바구니에 있는 상품입니다. 추가하시겠습니까?",
-          icon: "warning",
-          showCancelButton: true,
-          cancelButtonColor: "#d33",
-          confirmButtonText: "추가하기",
-        }).then((result) => {
-          if (result.isConfirmed) {
-            axios({
-              method: "post",
-              url: "/detail/addCart",
-              data: { id: productid },
-            })
-              .then(() => {
-                Swal.fire("장바구니에 추가되었습니다.", "", "success");
-              })
-              .then(() => {
-                window.location.reload();
-                scrollTo(0, 0);
-              });
+async function addcart(productid) {
+  if (isAdding) return;
+  isAdding = true;
+
+  try {
+    const res = await axios.post("/detail/addCart", { id: productid });
+
+    if (res.data === "increment") {
+      const result = await Swal.fire({
+        title: "이미 장바구니에 있는 상품입니다. 추가하시겠습니까?",
+        icon: "warning",
+        showCancelButton: true,
+        cancelButtonColor: "#d33",
+        confirmButtonText: "추가하기",
+        // 버튼 클릭 후 특정 작업 실행 (sweetAlert 옵션)
+        preConfirm: async () => {
+          if (isAdding) return;
+          isAdding = true;
+
+          try {
+            await axios.post("/detail/addCart", { id: productid });
+          } catch (error) {
+            console.error("Second request failed:", error);
+            await Swal.fire("추가 중 오류가 발생했습니다.", "", "error");
+          } finally {
+            isAdding = false;
           }
-        });
-      } else if (res.data === "added") {
-        Swal.fire({
-          title: "장바구니에 추가되었습니다.",
-          icon: "success",
-        }).then(() => {
-          window.location.reload();
-          scrollTo(0, 0);
-        });
-      } else {
-        Swal.fire({
-          title: "다시 시도하여 주세요.",
-          icon: "error",
-        });
+        },
+      });
+
+      if (result.isConfirmed) {
+        await Swal.fire("장바구니에 추가되었습니다.", "", "success");
       }
-    })
-    .catch((error) => {
-      console.error("Request failed:", error);
-    });
+    } else if (res.data === "added") {
+      await Swal.fire({
+        title: "장바구니에 추가되었습니다.",
+        icon: "success",
+      });
+    } else {
+      await Swal.fire({
+        title: "다시 시도하여 주세요.",
+        icon: "error",
+      });
+    }
+  } catch (error) {
+    console.error("Request failed:", error);
+  } finally {
+    isAdding = false;
+    window.location.reload();
+    scrollTo(0, 0);
+  }
 }
