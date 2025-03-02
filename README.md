@@ -161,7 +161,7 @@
 <br/>
 
 <h3> 카테고리 페이지 </h3>
-<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 제품을 클릭하면 카테고리를 서버로 보내고, 해당 카테고리에 맞는 정보를 출력</h4>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 제품을 클릭하면 카테고리를 서버로 보내고, 해당 카테고리에 맞는 제품을 출력</h4>
 <div align="center">
 
  ![Image](https://github.com/user-attachments/assets/42649498-cea0-4871-8fee-89d906857677)
