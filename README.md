@@ -64,6 +64,21 @@
     <td><img src="https://github.com/user-attachments/assets/722ce9bc-77d5-401d-858f-31c28cf705a1" width="400" height="600"></td>
   </tr>
  </table>
+
+ <table>
+  <tr>
+   <th> SPEAKER </th>
+   <th> HEADPHONE </th>
+   <th> SOUNDBAR </th>
+   <th> TV </th>
+  </tr>
+  <tr>
+   <td><img src="https://github.com/user-attachments/assets/80b843b8-5949-4fa7-bb86-2161fc715417" width="250" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/0aa6a3e9-ad73-4d86-9149-ebb77c95b101" width="250" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/50172b61-0ee3-4b0c-bbcf-fa71d7b017f6" width="250" height="600"></td>
+    <td><img src="https://github.com/user-attachments/assets/dd424d4e-3458-42be-abad-09afed2515bf" width="250" height="600"></td>
+  </tr>
+ </table>
 </div>
 
 <br/>
@@ -76,11 +91,13 @@
    <th> MAIN </th>
    <th> DETAIL </th>
    <th> SHOPPING CART </th>
+   <th> CATEGORY </th>
   </tr>
   <tr>
     <td><img src="https://github.com/user-attachments/assets/941055fc-2afc-4c7f-80ae-96c51d8ade65" width="100" height="700"></td>
     <td><img src="https://github.com/user-attachments/assets/d448cae7-9a7f-492e-948b-664014e81b57" width="150" height="700"></td>
     <td><img src="https://github.com/user-attachments/assets/87d8032c-d1ba-4f96-a221-6fd388d0cbed" width="150" height="700"></td>
+   <td><img src="https://github.com/user-attachments/assets/9d010ba2-ef64-478c-9fff-ca3c434c011d" width="150" height="700"></td>
   </tr>
  </table>
 </div>
@@ -127,7 +144,7 @@
 <h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 메인 페이지 요청할 때 랜더링하면서 제품 테이블의 정보를 모두 전달</h4>
 <div align="center">
  
-  ![Image](https://github.com/user-attachments/assets/82776f5d-54a2-4d9c-8e06-4236c081d64a)
+  ![Image](https://github.com/user-attachments/assets/49d017f0-33dc-4bd2-96f6-cb7bff2a1392)
   
 </div>
 
@@ -138,6 +155,16 @@
 <div align="center">
 
  ![Image](https://github.com/user-attachments/assets/31732c39-9f0e-45a8-b2bc-6c426932e99c)
+  
+</div>
+
+<br/>
+
+<h3> 카테고리 페이지 </h3>
+<h4>&nbsp&nbsp&nbsp&nbsp-&nbsp 제품을 클릭하면 카테고리를 서버로 보내고, 해당 카테고리에 맞는 정보를 출력</h4>
+<div align="center">
+
+ ![Image](https://github.com/user-attachments/assets/42649498-cea0-4871-8fee-89d906857677)
   
 </div>
 
