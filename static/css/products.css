@@ -102,7 +102,6 @@ p {
 .carousel-item video {
   max-height: 700px;
   object-fit: cover;
-  border-radius: 8px;
 }
 
 @media (max-width: 768px) {
