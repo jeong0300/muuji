@@ -16,4 +16,10 @@ const moveDetail = async (req, res) => {
   res.render("detail", { detail });
 };
 
-module.exports = { moveMain, moveDetail };
+const move = async (req, res) => {
+  const url = req.params.url;
+  const product = await products.move(url);
+  res.render(url, { product });
+};
+
+module.exports = { moveMain, moveDetail, move };

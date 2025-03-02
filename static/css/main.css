@@ -1,3 +1,8 @@
+body {
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
 /* carosel */
 .carousel-item {
   max-height: 90vh;
@@ -181,7 +186,12 @@
   cursor: pointer;
 }
 
-.textBox h2,
+.box:hover .imgBox img {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.textBox h3,
 p {
   cursor: pointer;
 }
@@ -190,12 +200,12 @@ p {
   margin-top: 10px;
 }
 
-.textBox h2 {
+.textBox h3 {
   position: relative;
   display: inline-block;
 }
 
-.textBox h2::after {
+.textBox h3::after {
   content: "";
   position: absolute;
   left: 0;
@@ -206,7 +216,7 @@ p {
   transition: width 0.3s ease-in-out;
 }
 
-.textBox h2:hover::after {
+.textBox h3:hover::after {
   width: 100%;
 }
 

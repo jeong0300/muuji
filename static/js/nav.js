@@ -11,20 +11,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// 장바구니 상품 수
-if (typeof window.shoppingCart === "undefined") {
-  window.shoppingCart =
-    JSON.parse(window.localStorage.getItem("shoppingCart")) || [];
-}
-
-const num = document.getElementById("num");
-
-if (window.shoppingCart.length === 0) {
-  num.innerText = 0;
-} else {
-  num.innerText = window.shoppingCart.length;
-}
-
 function showAlert() {
   Swal.fire({
     icon: "error",
@@ -33,11 +19,16 @@ function showAlert() {
   });
 }
 
-function moveDetail(id) {
-  document.body.classList.add("fade-out");
-  setTimeout(() => {
-    window.location.href = `../html/bearCraftShopDetail.html?id=${id}`;
-  }, 500);
+// 페이지 이동
+function move(url) {
+  axios
+    .get(`/muuji/${url}`)
+    .then((res) => {
+      window.location.href = `/muuji/${url}`;
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
 
 // 장바구니 총 수량

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- 경고창 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Diphylleia&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/static/css/products.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MUUJI</title>
+  </head>
+  <body>
+    <%-include('nav')%>
+
+    <div
+      id="carouselExampleSlidesOnly"
+      class="carousel slide"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <video
+            src="/static/images/headphoneImg.mp4"
+            class="d-block w-100"
+            alt="main video"
+            autoplay
+            muted
+            loop
+          ></video>
+        </div>
+      </div>
+    </div>
+
+    <div class="products">
+      <h2>HeadPhone</h2>
+
+      <hr />
+
+      <div class="container">
+        <div class="productImg" id="productContainer">
+          <% for(let i = 0; i < product.length; i++) { %>
+          <div class="box" onclick="moveDetail('<%= product[i].id %>')">
+            <div class="imgBox">
+              <img src="<%= product[i].image %>" />
+            </div>
+            <div class="textBox">
+              <h3><%= product[i].name %></h3>
+              <p>₩<%= product[i].price %></p>
+            </div>
+          </div>
+          <% } %>
+        </div>
+      </div>
+    </div>
+
+    <%-include('footer')%>
+    <script src="/static/js/product.js"></script>
+  </body>
+</html>

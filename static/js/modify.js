@@ -88,7 +88,6 @@ async function previewImage(event) {
 }
 
 // 수정 후 등록
-
 function removeHTMLTags(str) {
   return str.replace(/<\/?[^>]+(>|$)/g, ""); // 태그를 제거
 }

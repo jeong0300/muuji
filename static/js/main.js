@@ -14,11 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (scrollLeftButton && scrollRightButton && productContainer) {
     scrollLeftButton.addEventListener("click", function () {
-      smoothScroll(productContainer, -1200);
+      smoothScroll(productContainer, -1300);
     });
 
     scrollRightButton.addEventListener("click", function () {
-      smoothScroll(productContainer, 1200);
+      smoothScroll(productContainer, 1300);
     });
   }
 
