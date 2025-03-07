@@ -9,7 +9,7 @@ const adminRouter = require("./routes/adminRouter");
 const mainRouter = require("./routes/mainRouter");
 const detailRouter = require("./routes/detailRouter");
 const cartRouter = require("./routes/cartRouter");
-const { upload } = require("./controllers/adminController");
+const { upload } = require("./controllers/adminController");  
 
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
